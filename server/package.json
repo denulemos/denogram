@@ -6,7 +6,7 @@
   "author": "denulemos",
   "license": "MIT",
   "scripts": {
-    "dev": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && npm run build:prod",
     "build:prod": "webpack --config webpack.prod.js",
@@ -15,8 +15,11 @@
   },
   "dependencies": {
     "apollo-server": "^3.6.7",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
     "graphql": "^16.3.0",
-    "mongoose": "^6.2.9"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.9",
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,3 +1,5 @@
+const UserController = require('../controllers/user');
+
 const resolvers = {
     Query: {
         // User Query
@@ -5,6 +7,12 @@ const resolvers = {
             console.log("Getting User");
             return null;
         }
+    },
+
+    Mutation: {
+        // User Mutation
+        register: async (_, {input}) => UserController.register(input),
+        login: async (_, {input}) => UserController.login(input)
     }
 };
 
