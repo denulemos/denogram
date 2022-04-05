@@ -57,10 +57,8 @@ const login = async(input) => {
     if (!isPasswordCorrect) throw new Error("Password is incorrect");
 
     // We generate the token
-    const token = userFound.generateAuthToken();
-
-    
-    return {token};
+    const token = generateToken(userFound, process.env.SECRET_KEY, '48h');
+    return token;
 }
 
 
