@@ -2,18 +2,20 @@
 
 .auth-screen__container {
     align-items: center;
+
     display: flex !important;
     flex-direction: column;
-    height: 100vh;
+    margin: 10px;
+    padding-bottom: 30px;
     justify-content: center;
-    background-color: #f4f2f4;
+    background-color: $background;
 
     .auth-screen__logo {
         width: 400px;
     }
 
     .auth-screen__form {
-        background-color: #fff;
+        background-color: $background;
         border: 1px solid $gray-light;
         border-radius: 5px;
         padding: 20px 50px;
@@ -28,7 +30,11 @@
         padding: 20px 50px;
         border: 1px solid $gray-light;
         border-radius: 5px;
-        background-color: #fff;
+        background-color: $background;
+    }
+
+    .auth-screen__change-form-label {
+        color: $gray-light
     }
 
     span {
