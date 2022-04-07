@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
-import "./RegisterForm.scss";
+import "./LoginForm.scss";
 import { emailValidator } from "../../../utils/Validators";
 
 import { useMutation } from "@apollo/client";
@@ -8,9 +8,9 @@ import { REGISTER_USER } from "../../../gql/user";
 
 import {toast} from 'react-toastify';
 
-const namespace = "register-form";
+const namespace = "login-form";
 
-const RegisterForm = ({ setShowLogin }) => {
+const LoginForm = ({ setShowLogin }) => {
   const [register] = useMutation(REGISTER_USER);
 
   const [formData, setFormData] = useState({
@@ -53,17 +53,9 @@ const RegisterForm = ({ setShowLogin }) => {
   return (
     <div className={`${namespace}__container`}>
       <h2 className={`${namespace}__title`}>
-        Register to unleash your inner photographer!
+        Welcome back!
       </h2>
       <Form className={`${namespace}__form`}>
-        <Form.Input
-          onChange={(e) => handleChange(e, "name")}
-          type="text"
-          value={formData.name}
-          placeholder="Full Name"
-          name="name"
-          required
-        />
         <Form.Input
           onChange={(e) => handleChange(e, "username")}
           type="text"
@@ -88,24 +80,16 @@ const RegisterForm = ({ setShowLogin }) => {
           name="password"
           required
         />
-        <Form.Input
-          onChange={(e) => handleChange(e, "confirmPassword")}
-          type="password"
-          value={formData.confirmPassword}
-          placeholder="Confirm Password"
-          name="confirmpassword"
-          required
-        />
         <Button
           type="submit"
           onClick={() => onSubmit()}
           className={`${namespace}__button btn-submit`}
         >
-          Register
+          Login
         </Button>
       </Form>
     </div>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

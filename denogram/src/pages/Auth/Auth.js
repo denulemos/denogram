@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Container, Image } from "semantic-ui-react";
 import denogram from "../../assets/png/denogram.png";
 import RegisterForm from "../../components/Auth/RegisterForm";
+import LoginForm from "../../components/Auth/LoginForm";
 
 import "./Auth.scss";
 
@@ -15,7 +16,7 @@ const Auth = () => {
       <Image src={denogram} className={`${className}__logo`} />
 
       <div className={`${className}__form`}>
-          {showLogin ? (<p>Welcome back!</p>) : (<RegisterForm setShowLogin={setShowLogin}/>)}
+          {showLogin ? (<LoginForm setShowLogin={setShowLogin}/> ) : (<RegisterForm setShowLogin={setShowLogin}/>)}
       </div>
 
       <div className={`${className}__change-form`}>

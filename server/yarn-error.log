@@ -1,0 +1,51 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\denua\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\denua\AppData\Local\Microsoft\WindowsApps;C:\Users\denua\AppData\Roaming\npm;C:\Users\denua\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\denua\Documents\flutter_windows_2.2.3-stable\flutter\bin;C:\Program Files\Java\jdk1.8.0_301\bin;C:\Program Files (x86)\Calibre2\;C:\Users\denua\AppData\Local\Android\Sdk\platform-tools;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;%NVM_HOME%;%NVM_SYMLINK%;C:\Users\denua\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\denua\AppData\Local\Programs\Python\Python310\;C:\Users\denua\AppData\Local\Microsoft\WindowsApps;C:\Users\denua\AppData\Roaming\npm;C:\Users\denua\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Users\denua\AppData\Roaming\nvm;C:\Program Files\nodejs
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  14.17.4
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND npm.artifacts.io
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:69:26)
+
+npm manifest: 
+  {
+    "name": "denogram",
+    "version": "0.0.1",
+    "description": "Denogram server",
+    "main": "index.js",
+    "author": "denulemos",
+    "license": "MIT",
+    "scripts": {
+      "dev": "nodemon index.js",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "npm run clean && npm run build:prod",
+      "build:prod": "webpack --config webpack.prod.js",
+      "build:dev": "webpack --config webpack.dev.js",
+      "clean": "rm -rf dist"
+    },
+    "dependencies": {
+      "apollo-server": "^3.6.7",
+      "bcryptjs": "^2.4.3",
+      "dotenv": "^16.0.0",
+      "graphql": "^16.3.0",
+      "jsonwebtoken": "^8.5.1",
+      "mongoose": "^6.2.9",
+      "nodemon": "^2.0.15"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

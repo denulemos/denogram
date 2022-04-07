@@ -1,0 +1,25 @@
+@import "../../../styles/index.scss";
+
+.login-form__title {
+    font-size: 17px !important;
+    text-align: center;
+    margin-bottom: 20px; 
+    color: $gray-light ;
+}
+
+.login-form__form {
+    input {
+        padding: 13px 15px !important;
+        background-color: $background !important;
+        border: 1px solid $gray-light !important;
+    }
+}
+
+.login-form__button-reset {
+    margin-top: 5px !important;
+    background-color: $gray !important;
+}
+
+.ui.form .field .ui.input input, .ui.form .fields .field .ui.input input {
+    color: white;
+}

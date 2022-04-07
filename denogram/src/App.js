@@ -1,13 +1,25 @@
-import React, {useState} from 'react';
-import {ApolloProvider} from '@apollo/client';
-import client from './config/apollo';
-import Auth from './pages/Auth';
+import React, { useState } from "react";
+import { ApolloProvider } from "@apollo/client";
+import { ToastContainer } from "react-toastify";
+import client from "./config/apollo";
+import Auth from "./pages/Auth";
 
 function App() {
   const [auth, setAuth] = useState(undefined);
   return (
     <ApolloProvider client={client}>
-    {!auth ? <Auth/> : <h1>logged</h1>}
+      <ToastContainer
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+      />
+        {!auth ? <Auth /> : <h1>logged</h1>}
     </ApolloProvider>
   );
 }
