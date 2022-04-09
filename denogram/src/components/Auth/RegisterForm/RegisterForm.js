@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
 import "./RegisterForm.scss";
-import { emailValidator } from "../../../utils/Validators";
+import { emailValidator } from "../../../utils/validators";
 
 import { useMutation } from "@apollo/client";
 import { REGISTER_USER } from "../../../gql/user";

@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import { Form, Button } from "semantic-ui-react";
-import "./LoginForm.scss";
-import { emailValidator } from "../../../utils/Validators";
-
-import { useMutation } from "@apollo/client";
-import { REGISTER_USER } from "../../../gql/user";
-
 import {toast} from 'react-toastify';
+import { useMutation } from "@apollo/client";
+
+import "./LoginForm.scss";
+
+import { emailValidator } from "../../../utils/validators";
+import {saveToken} from '../../../utils/token';
+import { LOGIN } from "../../../gql/user";
+import useAuth from "../../../hooks/useAuth";
+
 
 const namespace = "login-form";
 
-const LoginForm = ({ setShowLogin }) => {
-  const [register] = useMutation(REGISTER_USER);
+const LoginForm = () => {
+  const [login] = useMutation(LOGIN);
+
+  const {setUser} = useAuth();
 
   const [formData, setFormData] = useState({
-    name: "",
-    username: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
 
   const handleChange = (e, key) => {
@@ -33,17 +35,13 @@ const LoginForm = ({ setShowLogin }) => {
       toast.error('There was an error - Invalid email')
     }
     try {
-        const newUser = formData;
-        // We delete the confirmPassword field because it is not needed in the mutation
-        delete newUser.confirmPassword;
-
-        await register({
+        const result = await login({
             variables: {
-                input: newUser,
+                input: formData,
             }
         });
-        toast.success(`Welcome to Denogram ${formData.username}!`);
-        setShowLogin(true);
+        saveToken(result.data.login.token);
+        setUser(result.data.login.token);
     }
     catch(error) {
       toast.error('There was an error - ' + error.message)
@@ -56,14 +54,6 @@ const LoginForm = ({ setShowLogin }) => {
         Welcome back!
       </h2>
       <Form className={`${namespace}__form`}>
-        <Form.Input
-          onChange={(e) => handleChange(e, "username")}
-          type="text"
-          value={formData.username}
-          placeholder="Username"
-          name="username"
-          required
-        />
         <Form.Input
           onChange={(e) => handleChange(e, "email")}
           type="email"
