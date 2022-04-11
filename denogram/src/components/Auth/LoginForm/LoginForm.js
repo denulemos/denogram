@@ -6,7 +6,7 @@ import { useMutation } from "@apollo/client";
 import "./LoginForm.scss";
 
 import { emailValidator } from "../../../utils/validators";
-import {saveToken} from '../../../utils/token';
+import {saveToken, decodeToken} from '../../../utils/token';
 import { LOGIN } from "../../../gql/user";
 import useAuth from "../../../hooks/useAuth";
 
@@ -41,7 +41,7 @@ const LoginForm = () => {
             }
         });
         saveToken(result.data.login.token);
-        setUser(result.data.login.token);
+        setUser(decodeToken(result.data.login.token));
     }
     catch(error) {
       toast.error('There was an error - ' + error.message)

@@ -1,4 +1,5 @@
 import {TOKEN} from './constants';
+import jwtDecode from 'jwt-decode';
 
 export const saveToken = (token) => {
     // save to localstorage
@@ -7,4 +8,8 @@ export const saveToken = (token) => {
 
 export const getToken = () => {
     return localStorage.getItem(TOKEN);
+}
+
+export const decodeToken = (token) => {
+    return jwtDecode(token);
 }

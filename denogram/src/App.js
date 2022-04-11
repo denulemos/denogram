@@ -6,6 +6,7 @@ import client from "./config/apollo";
 import Auth from "./pages/Auth";
 import { getToken } from "./utils/token";
 import AuthContext from "./context/AuthContext";
+import Navigation from "./routes/Navigation";
 
 function App() {
   const [auth, setAuth] = useState(undefined);
@@ -47,7 +48,7 @@ function App() {
           hideProgressBar
           newestOnTop
         />
-        {!auth ? <Auth /> : <h1>logged</h1>}
+        {!auth ? <Auth /> : <Navigation/>}
       </AuthContext.Provider>
     </ApolloProvider>
   );
