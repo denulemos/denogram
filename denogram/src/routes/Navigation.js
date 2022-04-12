@@ -12,7 +12,7 @@ const Navigation = () => {
                     key={index}
                     path={route.path}
                     exact={route.exact}
-                    element={<route.component />}
+                    element={<route.layout><route.component /></route.layout>}
                     />
                 ))}
             </Routes>

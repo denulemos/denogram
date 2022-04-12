@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 
 import client from "./config/apollo";
 import Auth from "./pages/Auth";
-import { getToken } from "./utils/token";
+import { getToken, decodeToken } from "./utils/token";
 import AuthContext from "./context/AuthContext";
 import Navigation from "./routes/Navigation";
 
@@ -14,7 +14,12 @@ function App() {
   useEffect(() => {
     // Check if user is logged in
     const token = getToken();
-    if (token) setAuth(token);
+   
+    if (token){
+      const user = decodeToken(token);
+      console.log(user);
+      setAuth(user);
+    } 
   }, []);
 
   const logout = () => {
