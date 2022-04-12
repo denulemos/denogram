@@ -31,8 +31,8 @@ const typeDefs = gql`
     }
 
     type Query {
-        # User Query
-        getUser: User
+        # User Query receives or ID or username
+        getUser(id: ID, username: String): User
     }
 
     type Mutation {

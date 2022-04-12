@@ -3,9 +3,8 @@ const UserController = require('../controllers/user');
 const resolvers = {
     Query: {
         // User Query
-        getUser: () => {
-            console.log("Getting User");
-            return null;
+        getUser: (_, {id, username}) => {
+                UserController.getUser(id, username);
         }
     },
 

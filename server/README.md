@@ -19,3 +19,48 @@ description: String,
 password: String required
 createdAt: Date default Date.Now
 ```
+
+### Queries
+
+**getUser**
+
+```
+query getUser ($id: ID, $username: String) {
+  getUser(id: $id, username: $username) {
+      id
+      name
+      username
+      email
+  }
+}
+
+{
+    "id": ""
+    "username": ""
+}
+```
+
+
+### Mutations
+
+**register**
+
+```
+mutation register($input: UserInput) {
+    register(input: $input) {
+        id
+        name
+        username
+        email
+    }
+}
+
+{
+    "input": {
+        "name": "",
+        "username": "",
+        "email": "",
+        "password": ""
+    }
+}
+```
