@@ -5,9 +5,12 @@ import "./Profile.scss"
 
 const Profile = (params) => {
     const {username} = params;
-    const result = useQuery(GET_USER, {variables: {username}});
+    const {data, loading, error} = useQuery(GET_USER, {variables: {username}});
 
-    console.log(result);
+    if (loading) return null; // Without this, we will consume data as undefined at first
+    if (error) return <h1>User not found</h1>
+
+    const {getUser} = data;
 
     return (
         <div>

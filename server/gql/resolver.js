@@ -4,7 +4,7 @@ const resolvers = {
     Query: {
         // User Query
         getUser: (_, {id, username}) => {
-                UserController.getUser(id, username);
+               return UserController.getUser(id, username);
         }
     },
 

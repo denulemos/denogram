@@ -17,7 +17,6 @@ function App() {
    
     if (token){
       const user = decodeToken(token);
-      console.log(user);
       setAuth(user);
     } 
   }, []);
@@ -38,6 +37,8 @@ function App() {
       setUser      
     }), [auth] // if auth changes, re-render
   )
+
+  if (!auth) return null;
 
   return (
     <ApolloProvider client={client}>
